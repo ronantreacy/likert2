@@ -1,0 +1,6 @@
+ng new -ng4 --style scss likert
+cd likert
+npm install --save bootstrap
+add script and scss to .angular-cli.json
+install ngrx/store npm install @ngrx/core @ngrx/store@2.2.3 @ngrx/effects --save
+mkdir app/state-management/ actions effects reducers state
