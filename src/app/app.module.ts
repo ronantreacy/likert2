@@ -2,17 +2,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { Store, StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
+import { DataInputComponent } from './data-input/data-input.component';
+import { DataVisualisationComponent } from './data-visualisation/data-visualisation.component';
+
+import { mainReducer } from "./state-management/reducers/main-reducer";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DataInputComponent,
+    DataVisualisationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    StoreModule.forRoot(mainReducer)
   ],
   providers: [],
   bootstrap: [AppComponent]
