@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { DataInputComponent } from './data-input/data-input.component';
 import { DataVisualisationComponent } from './data-visualisation/data-visualisation.component';
 
-import { mainReducer } from "./state-management/reducers/main-reducer";
+import { reducers } from "./state-management/reducers";
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { mainReducer } from "./state-management/reducers/main-reducer";
     BrowserModule,
     FormsModule,
     HttpModule,
-    StoreModule.forRoot(mainReducer)
+    StoreModule.forRoot(reducers)
   ],
   providers: [],
   bootstrap: [AppComponent]

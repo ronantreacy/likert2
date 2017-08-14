@@ -37,7 +37,10 @@ testem.log
 /e2e/*.map
 
 # vim
-*.swp
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
 
 #System Files
 .DS_Store

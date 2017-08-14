@@ -1,12 +1,12 @@
 import { Action } from "@ngrx/store";
 import { Response } from "../../models/response";
 
-export const INCREASE_NUMBER_RESPONSES = "[NumResponses] INCREASE_NUMBER_RESPONSES";
-export const DECREASE_NUMBER_RESPONSES = "[NumResponses] INCREASE_NUMBER_RESPONSES";
-export const ADD_RESPONSE              = "[Response] ADD_RESPONSE";
-export const UPDATE_RESPONSE           = "[Response] UPDATE_RESPONSE";
-export const REMOVE_RESPONSE           = "[Response] REMOVE_RESPONSE";
-export const UPDATE_LABELS             = "[Labels] UPDATE_LABELS";
+export const INCREASE_NUMBER_RESPONSES = "INCREASE_NUMBER_RESPONSES";
+export const DECREASE_NUMBER_RESPONSES = "INCREASE_NUMBER_RESPONSES";
+export const ADD_RESPONSE              = "ADD_RESPONSE";
+export const UPDATE_RESPONSE           = "UPDATE_RESPONSE";
+export const REMOVE_RESPONSE           = "REMOVE_RESPONSE";
+export const UPDATE_LABELS             = "UPDATE_LABELS";
 
 export class IncreaseNumberResponses implements Action {
     readonly type = "INCREASE_NUMBER_RESPONSES";
@@ -36,7 +36,7 @@ export class UpdateLabels implements Action {
     constructor(public payload: string[]) {}
 }
 
-export type All
+export type Actions
     = IncreaseNumberResponses
     | DecreaseNumberResponses
     | AddResponse

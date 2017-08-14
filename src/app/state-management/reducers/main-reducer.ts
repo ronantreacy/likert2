@@ -1,10 +1,21 @@
-import { initialState } from "../state/main-state";
 import { Response } from "../../models/response";
 import * as MainActions from "../actions/main-actions";
 
+export interface State {
+    responses: Response[];
+    numberResponses: number;
+    labels: string[];
+}
+
+export const initialState: State = {
+    responses: [],
+    numberResponses: 4,
+    labels: ["","","",""]
+}
+
 var id: number = 0;
 
-export function mainReducer(state = initialState, action){
+export function reducer(state = initialState, action: MainActions.Actions): State {
 
     switch (action.type) {
         case MainActions.INCREASE_NUMBER_RESPONSES: {
@@ -64,3 +75,10 @@ export function mainReducer(state = initialState, action){
     }
 
 };
+
+export const getLabels = (state: State) => state.labels;
+
+export const getNumberResponses = (state: State) => state.numberResponses;
+
+export const getResponses = (state: State) => state.responses;
+

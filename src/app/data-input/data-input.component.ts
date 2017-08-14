@@ -3,9 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { Response } from "../models/response";
 
-import * as mainActions from '../state-management/actions/main-actions';
-import * as fromRoot from '../state-management/reducers/main-reducer';
-import { ResponseState } from '../state-management/state/main-state';
+import * as main from '../state-management/actions/main-actions';
+import * as fromRoot from '../state-management/reducers';
 
 @Component({
   selector: 'app-data-input',
@@ -13,17 +12,20 @@ import { ResponseState } from '../state-management/state/main-state';
 })
 export class DataInputComponent implements OnInit {
 
+    labels: string[];
+    responses$: Observable<Response[]>;
+    numberResponses: Observable<number>;
+
     constructor(
-        private store: Store<any>
+        private store: Store<fromRoot.State>
     ) { 
-        store.select('mainReducer')
-            .subscribe( (data:State )=> {
-                this.data = data;
-            });
+        store.select(fromRoot.getLabels)
+            .subscribe (labels => {
+                this.labels = labels
+            })
     }
 
     ngOnInit() {
-        console.log(this.data);
     }
 
 }
