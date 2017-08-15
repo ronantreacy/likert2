@@ -38,9 +38,14 @@ export function reducer(state = initialState, action: MainActions.Actions): Stat
         }
         case MainActions.ADD_RESPONSE: {
             id++;
+            var emptyResponse: Response = {
+                question: "",
+                id: id,
+                responses: Array.apply(null, {length: state.numberResponses}).map(function(){ return 0; })
+            };
             return {
                 numberResponses: state.numberResponses,
-                responses: [...state.responses, Object.assign({}, action.payload, {id: id})],
+                responses: [...state.responses, Object.assign({}, emptyResponse)],
                 labels: [...state.labels]
             };
         }

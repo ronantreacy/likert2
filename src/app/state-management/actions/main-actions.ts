@@ -18,7 +18,6 @@ export class DecreaseNumberResponses implements Action {
 
 export class AddResponse implements Action {
     readonly type = "ADD_RESPONSE";
-    constructor(public payload: Response) {}
 }
 
 export class UpdateResponse implements Action {

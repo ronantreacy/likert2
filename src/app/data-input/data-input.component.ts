@@ -13,19 +13,28 @@ import * as fromRoot from '../state-management/reducers';
 export class DataInputComponent implements OnInit {
 
     labels: string[];
-    responses$: Observable<Response[]>;
-    numberResponses: Observable<number>;
+    responses: Response[];
+    numberResponses: number;
 
     constructor(
         private store: Store<fromRoot.State>
     ) { 
         store.select(fromRoot.getLabels)
             .subscribe (labels => {
-                this.labels = labels
+                this.labels = labels;
+            })
+        store.select(fromRoot.getResponses)
+            .subscribe(responses => {
+                this.responses = responses;
+            })
+        store.select(fromRoot.getNumberResponses)
+            .subscribe(numberResponses => {
+                this.numberResponses = numberResponses;
             })
     }
 
     ngOnInit() {
+        this.addResponse();
     }
 
     trackByIndex(index: number, obj: any): any {
@@ -42,6 +51,18 @@ export class DataInputComponent implements OnInit {
 
     updateLabels(){
         this.store.dispatch(new main.UpdateLabels(this.labels));
+    };
+
+    removeResponse(response){
+        this.store.dispatch(new main.RemoveResponse(response));
+    };
+
+    updateResponse(response){
+        this.store.dispatch(new main.UpdateResponse(response));
+    };
+
+    addResponse(){
+        this.store.dispatch(new main.AddResponse());
     };
 
 }

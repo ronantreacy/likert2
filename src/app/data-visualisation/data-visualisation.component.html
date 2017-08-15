@@ -1,3 +1,14 @@
-<p>
-  data-visualisation works!
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th *ngFor="let label of labels">{{label}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let response of responses">
+      <th>{{response.question}}</th>
+      <td *ngFor="let r of response.responses">{{r}}</td>
+    </tr>
+  <tbody>
+</table>
