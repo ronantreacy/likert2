@@ -19,11 +19,12 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss",
-        "../node_modules/bootstrap/scss/bootstrap.scss"
+        "../node_modules/bootstrap/scss/bootstrap.scss",
+        "styles.scss"
       ],
       "scripts": [
         "../node_modules/tether/dist/js/tether.min.js",
+        "../node_modules/popper.js/dist/umd/popper.min.js",
         "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
