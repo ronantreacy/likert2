@@ -1,32 +1,61 @@
-<h5>Questions</h5>
-<div class="row" *ngFor="let response of responses; let index = index; trackBy:trackByIndex;">
-  <div class="col-12 form-group">
-    <label class="col-form-label">Question text</label>
-    <input class="form-control" [(ngModel)]="responses[index].question" (change)="updateResponse(response)" name="response-question-{{index}}" placeholder="Question">
+<div class="card mt-4">
+  <div class="card-body">
+    <h4 class="card-title">Questions</h4>
   </div>
-  <div class="col-12">
-    <label class="col-form-label">Question responses</label>
+  <div class="card-body" *ngFor="let response of responses; let index = index; trackBy:trackByIndex;">
     <div class="row">
-      <div class="col-sm-4 col-md-3 col-lg-2 form-group" *ngFor="let r of response.responses; let rindex = index;trackBy:trackByIndex;">
-        <input class="form-control" type="number" [(ngModel)]="responses[index].responses[rindex]" (change)="updateResponse(response)" name="repsonse-{{index}}-r-{{rindex}}" placeholder="0" min="0">
+      <div class="col-12 form-group">
+        <label class="col-form-label">Question text</label>
+        <input class="form-control" 
+          [(ngModel)]="responses[index].question"
+          (change)="updateResponse(response)" 
+          name="response-question-{{index}}" 
+          placeholder="Question">
+      </div>
+      <div class="col-12">
+        <label class="col-form-label">Question responses</label>
+        <div class="row">
+          <div class="col-sm-4 col-md-3 col-lg-2 form-group" *ngFor="let r of response.responses; let rindex = index;trackBy:trackByIndex;">
+            <input class="form-control" 
+              type="number" 
+              [(ngModel)]="responses[index].responses[rindex]" 
+              (change)="updateResponse(response)" 
+              name="repsonse-{{index}}-r-{{rindex}}" 
+              placeholder="0" min="0">
+          </div>
+        </div>
+      </div>
+      <div class="col-12 form-group">
+        <button type="button" class="btn btn-outline-danger" (click)="removeResponse(response)">Delete question</button>
       </div>
     </div>
   </div>
-  <div class="col-12 form-group">
-    <button type="button" class="btn btn-outline-danger" (click)="removeResponse(response)">Delete question</button>
+  <div class="card-body">
+    <div class="form-group">
+      <button type="button" class="btn btn-outline-secondary" (click)="addResponse()">Add question</button>
+    </div>
   </div>
 </div>
-<div class="form-group">
-  <button type="button" class="btn btn-outline-secondary" (click)="addResponse()">Add question</button>
-</div>
-<h5>Labels</h5>
-<div class="row">
-  <div class="col-sm-6 col-md-4 col-lg-3 form-group" *ngFor="let label of labels; let index = index;trackBy:trackByIndex;">
-    <input class="form-control" [(ngModel)]="labels[index]" (change)="updateLabels()" name="label-{{index}}" placeholder="Label {{index+1}}">
+<div class="card mt-4">
+  <div class="card-body">
+    <h4 class="card-title">Labels</h4>
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-3 form-group" *ngFor="let label of labels; let index = index;trackBy:trackByIndex;">
+        <input class="form-control" 
+          [(ngModel)]="labels[index]" 
+          (change)="updateLabels()" 
+          name="label-{{index}}" 
+          placeholder="Label {{index+1}}">
+      </div>
+    </div>
   </div>
 </div>
-<h5>Number of Responses</h5>
-<div class="form-group">
-  <button type="button" class="btn btn-outline-secondary" (click)="decreaseNumberResponses()">Remove response</button>
-  <button type="button" class="btn btn-outline-secondary" (click)="increaseNumberResponses()">Add response</button>
+<div class="card mt-4">
+  <div class="card-body">
+    <h4 class="card-title">Number of Responses</h4>
+    <div class="form-group">
+      <button type="button" class="btn btn-outline-secondary" (click)="decreaseNumberResponses()">Remove response</button>
+      <button type="button" class="btn btn-outline-secondary" (click)="increaseNumberResponses()">Add response</button>
+    </div>
+  </div>
 </div>
