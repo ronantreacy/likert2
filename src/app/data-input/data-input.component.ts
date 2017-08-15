@@ -15,6 +15,7 @@ export class DataInputComponent implements OnInit {
     labels: string[];
     responses: Response[];
     numberResponses: number;
+    chartType: string;
 
     constructor(
         private store: Store<fromRoot.State>
@@ -30,6 +31,10 @@ export class DataInputComponent implements OnInit {
         store.select(fromRoot.getNumberResponses)
             .subscribe(numberResponses => {
                 this.numberResponses = numberResponses;
+            })
+        store.select(fromRoot.getChartType)
+            .subscribe(chartType => {
+                this.chartType = chartType;
             })
     }
 
@@ -63,6 +68,10 @@ export class DataInputComponent implements OnInit {
 
     addResponse(){
         this.store.dispatch(new main.AddResponse());
+    };
+
+    updateChartType(newType){
+        this.store.dispatch(new main.UpdateType(newType));
     };
 
 }

@@ -7,6 +7,7 @@ export const ADD_RESPONSE              = "ADD_RESPONSE";
 export const UPDATE_RESPONSE           = "UPDATE_RESPONSE";
 export const REMOVE_RESPONSE           = "REMOVE_RESPONSE";
 export const UPDATE_LABELS             = "UPDATE_LABELS";
+export const UPDATE_CHART_TYPE         = "UPDATE_CHART_TYPE";
 
 export class IncreaseNumberResponses implements Action {
     readonly type = "INCREASE_NUMBER_RESPONSES";
@@ -35,6 +36,11 @@ export class UpdateLabels implements Action {
     constructor(public payload: string[]) {}
 }
 
+export class UpdateType implements Action {
+    readonly type = "UPDATE_CHART_TYPE";
+    constructor(public payload: string) {}
+}
+
 export type Actions
     = IncreaseNumberResponses
     | DecreaseNumberResponses
@@ -42,3 +48,4 @@ export type Actions
     | UpdateResponse
     | RemoveResponse
     | UpdateLabels
+    | UpdateType

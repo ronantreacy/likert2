@@ -59,3 +59,18 @@
     </div>
   </div>
 </div>
+<div class="card mt-4">
+  <div class="card-body">
+    <h4 class="card-title">Chart Type</h4>
+    <div class="form-group">
+      <button type="button" 
+        class="btn btn-outline-secondary" 
+        [ngClass]="{'active': chartType == 'bubbles'}" 
+        (click)="updateChartType('bubbles')">Bubbles</button>
+      <button type="button" 
+        class="btn btn-outline-secondary" 
+        [ngClass]="{'active': chartType == 'bars'}" 
+        (click)="updateChartType('bars')">Stacked Bars</button>
+    </div>
+  </div>
+</div>

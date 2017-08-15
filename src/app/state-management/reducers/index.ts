@@ -27,3 +27,8 @@ export const getLabels = createSelector(
     fromMain.getLabels
 );
 
+export const getChartType = createSelector(
+    getMainState,
+    fromMain.getChartType
+);
+
