@@ -2,7 +2,7 @@ import { Action } from "@ngrx/store";
 import { Response } from "../../models/response";
 
 export const INCREASE_NUMBER_RESPONSES = "INCREASE_NUMBER_RESPONSES";
-export const DECREASE_NUMBER_RESPONSES = "INCREASE_NUMBER_RESPONSES";
+export const DECREASE_NUMBER_RESPONSES = "DECREASE_NUMBER_RESPONSES";
 export const ADD_RESPONSE              = "ADD_RESPONSE";
 export const UPDATE_RESPONSE           = "UPDATE_RESPONSE";
 export const REMOVE_RESPONSE           = "REMOVE_RESPONSE";

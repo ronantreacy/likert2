@@ -28,4 +28,20 @@ export class DataInputComponent implements OnInit {
     ngOnInit() {
     }
 
+    trackByIndex(index: number, obj: any): any {
+        return index;
+    };
+
+    increaseNumberResponses(){
+        this.store.dispatch(new main.IncreaseNumberResponses());
+    };
+
+    decreaseNumberResponses(){
+        this.store.dispatch(new main.DecreaseNumberResponses());
+    };
+
+    updateLabels(){
+        this.store.dispatch(new main.UpdateLabels(this.labels));
+    };
+
 }

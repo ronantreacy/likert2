@@ -31,9 +31,9 @@ export function reducer(state = initialState, action: MainActions.Actions): Stat
             return {
                 numberResponses: state.numberResponses - 1,
                 responses: state.responses.map(function(r){
-                    return Object.assign({}, r, {responses: [...r.responses].splice(-1,1)});
+                    return Object.assign({}, r, {responses: [...r.responses].slice(0,-1)});
                 }),
-                labels: [...state.labels].splice(-1,1)
+                labels: [...state.labels].slice(0,-1)
             };
         }
         case MainActions.ADD_RESPONSE: {

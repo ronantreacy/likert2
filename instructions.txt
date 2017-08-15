@@ -10,4 +10,5 @@ ng g c data-visualisation
 add above to app component template
 mkdir models
 make response interface
-create state-management initial state, actions and reducer
+create state-management actions and reducer
+create the form for data input
