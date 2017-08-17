@@ -209,40 +209,6 @@ export class DataVisualisationComponent implements OnInit {
             .style("font-family", "Arial")
             .style("font-size", "14px");
 
-        if (this.data.chartType == 'stackedBar'){
-
-            var maxDistance = 0;
-            var leftEnd = numberLabels % 2 != 0 ? (numberLabels-1)/2 : numberLabels/2;
-            var rightStart = numberLabels % 2 != 0 ? leftEnd + 2 : leftEnd + 1;
-            var centre = numberLabels %2 != 0 ? leftEnd + 1 : null;
-
-            for (var d=0; d<this.data.responses.length; d++){
-                var leftAmount = 0;
-                var rightAmount = 0;
-                var totalAmount = 0;
-                for (var i=0; i<numberLabels; i++){
-                    totalAmount += this.data.responses[d].responses[i];
-                    if(i+1<=leftEnd){
-                        leftAmount += this.data.responses[d].responses[i];
-                    }
-                    else if (i+1>= rightStart){
-                        rightAmount += this.data.responses[d].responses[i];
-                    }
-                    else{
-                        rightAmount += this.data.responses[d].responses[i] / 2
-                        leftAmount += this.data.responses[d].responses[i] / 2
-                    }
-                }
-
-                var biggerAmount = Math.max(leftAmount,rightAmount);
-
-                if (biggerAmount * 100 / totalAmount > maxDistance){
-                    maxDistance = biggerAmount * 100 / totalAmount;
-                }
-            }
-
-        }
-
         var rows = this.chart.selectAll(".row").data(this.data.responses);
 
         rows.exit().remove();
