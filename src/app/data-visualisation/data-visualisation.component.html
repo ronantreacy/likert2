@@ -1,14 +1,7 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th *ngFor="let label of labels">{{label}}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let response of responses">
-      <th>{{response.question}}</th>
-      <td *ngFor="let r of response.responses">{{r}}</td>
-    </tr>
-  <tbody>
-</table>
+<div style="display:none;" #chart></div>
+<div class="card my-4">
+  <img class="card-img-top" [src]="pngData"/>
+  <div class="card-body">
+    <a class="btn btn-outline-primary" [href]="pngData" [download]="downloadText">Download image</a>
+  </div>
+</div>
