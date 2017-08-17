@@ -12,3 +12,5 @@ mkdir models
 make response interface
 create state-management actions and reducer
 create the form for data input
+write the d3 code
+convert to png for download
